@@ -1,4 +1,4 @@
-package src.exercises.list;
+package exercises;
 
 public class Carrinho {
     private int id;

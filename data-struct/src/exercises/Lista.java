@@ -1,8 +1,7 @@
-package src.exercises;
+package exercises;
 
 import java.util.ArrayList;
 import java.util.List;
-import src.exercises.list.Carrinho;
 
 public class Lista {
    
