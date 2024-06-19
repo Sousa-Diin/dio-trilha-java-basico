@@ -1,8 +1,8 @@
-import exercises.Lista;
+import exercises.list.Lista;
 
 import java.util.Scanner;
-
 import exercises.Carrinho;
+import exercises.list.Lista;
 
 public class App {
     public static void main(String[] args) throws Exception {
