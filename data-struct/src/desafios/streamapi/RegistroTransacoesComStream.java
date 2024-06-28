@@ -21,19 +21,20 @@ public class RegistroTransacoesComStream {
 
             // TODO: Criar uma nova transação e adicioná-la à lista de transações
             Transacao transacao = new Transacao(tipoTransacao, valorTransacao);
+            transacoes.add(transacao);
 
             // Verifica e atualiza o saldo da conta com base no tipo de transação
-            if (transacao.getTipo() == 'D') {
+            if (transacao.getTipo() == 'D' || transacao.getTipo() == 'd') {
                 saldo += valorTransacao;
-            } else if (transacao.getTipo() == 'S') {
+            } else if (transacao.getTipo() == 'S' || transacao.getTipo() == 's') {
                 saldo -= valorTransacao;
             }
         }
 
-        System.out.println("\nSaldo : " + saldo);
-        System.out.println("\nTransacoes:");
+        System.out.println("Saldo : " + saldo);
+        System.out.println("Transacoes:");
         transacoes.stream()
-                .map(transacao -> "TODO: Formatar a Saída (tipo e valor) de acordo com os Exemplos.")
+                .map(transacao -> String.format("%c de %.2f", transacao.getTipo(), transacao.getValor()))
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
