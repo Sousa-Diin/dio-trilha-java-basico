@@ -8,51 +8,46 @@ import conta.Conta;
 import personas.Cliente;
 
 public abstract class Banco {
-    protected static int cod = 100;
-    protected String tipo;
+    protected  int cod = 100;
+    protected String tipo;//Tipo: Fisico ou Digital
     protected String nome;
-    protected List<Cliente> clientes;
+    protected List<Conta> contas;
 
-    Banco ( String nome, char tipo){
+    public Banco ( String nome, int tipo){
         this.nome = nome;
-        this.clientes = new ArrayList<>();
-        Banco.setCod(cod++);
+        this.contas = new ArrayList<>();
+        this.cod++;
         this.tipo = clacificaTipo(tipo);
     }
 
-    public static int getCod() {
+    public int getCod() {
         return cod;
     }
 
-    public String getNome() {
-        return nome;
+    protected String getNome() {
+        return this.nome;
     }
 
-    private static void setCod(int cod) {
-        Banco.cod = cod;
+    protected String getTipo(){
+        return this.tipo;
     }
 
-    public void setTipo(char tipo) {
+    protected void setTipo(int tipo) {
         this.tipo = clacificaTipo(tipo);
     }
 
-    public void setNome(String nome) {
+    protected void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setClientes(List<Cliente> clientes) {
-        this.clientes = clientes;
+    public void addConta (Conta conta){
+
+        contas.add(conta);
     }
 
-    public void addCliente (Cliente cliente){
-        clientes.add(cliente);
-    }
-
-    public void criarConta (Conta conta){
-        
-    }
-
-    private String clacificaTipo(char tipo){
+    protected abstract void criarConta (Cliente cliente);
+    
+    private String clacificaTipo(int tipo){
         String tempTipo = "underfined";
         switch (tipo) {
             case 1:
@@ -70,7 +65,15 @@ public abstract class Banco {
         return tempTipo;
     }
  
-    public List<Cliente> getListaClientes() {
-        return Collections.unmodifiableList(clientes);
+    protected List<Conta> getListaContas() {
+        return Collections.unmodifiableList(contas);
     }
+
+    @Override
+    public String toString() {
+        return "Cod: " + getCod() + "\nTipo " + getTipo() + "\nNome: " + getNome() + "\n";
+    }
+
+    
+
 }

@@ -4,7 +4,7 @@ import banco.OperacoesBancarias;
 import personas.Cliente;
 
 
-public abstract class Conta implements OperacoesBancarias{
+public class Conta implements OperacoesBancarias{
 
     private static final int AGENCIA_PADRAO = 1;
 	private static int SEQUENCIAL = 1;
@@ -14,7 +14,7 @@ public abstract class Conta implements OperacoesBancarias{
 	protected double saldo;
 	protected Cliente cliente; 
 
-    Conta ( Cliente cliente){
+    public Conta ( Cliente cliente){
         this.agencia = AGENCIA_PADRAO;
         this.numero = SEQUENCIAL++;
         this.cliente = cliente;
