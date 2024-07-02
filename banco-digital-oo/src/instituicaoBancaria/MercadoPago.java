@@ -3,9 +3,9 @@ package instituicaoBancaria;
 import banco.Banco;
 import personas.Cliente;
 
-public class NuBank extends Banco{
+public class MercadoPago extends Banco{
 
-    public NuBank(String nome, int tipo) {
+    public MercadoPago(String nome, int tipo) {
         super(nome, tipo);
         //TODO Auto-generated constructor stub
     }
@@ -31,6 +31,8 @@ public class NuBank extends Banco{
     Boolean isClienteCadastrado(Cliente cliente){
         return false;
     }
+
+   
 
     
 }

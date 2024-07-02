@@ -62,11 +62,35 @@ public class Conta implements OperacoesBancarias{
     }
 
     
-	protected void imprimirInfosComuns() {
+	public void imprimirInfosComuns() {
 		System.out.println(String.format("Titular: %s", this.cliente.getName()));
 		System.out.println(String.format("Agencia: %d", this.agencia));
 		System.out.println(String.format("Numero: %d", this.numero));
 		System.out.println(String.format("Saldo: %.2f", this.saldo));
 	}
+
+    public static int getAgenciaPadrao() {
+        return AGENCIA_PADRAO;
+    }
+
+    public static int getSEQUENCIAL() {
+        return SEQUENCIAL;
+    }
+
+    public int getAgencia() {
+        return agencia;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
     
 }

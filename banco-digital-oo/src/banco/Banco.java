@@ -1,22 +1,21 @@
 package banco;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
 
 import conta.Conta;
-import personas.Cliente;
 
 public abstract class Banco {
+    private static int auxCod = 0;
     protected  int cod = 100;
     protected String tipo;//Tipo: Fisico ou Digital
     protected String nome;
-    protected List<Conta> contas;
+    protected HashMap<Integer,Conta> contas;
 
     public Banco ( String nome, int tipo){
         this.nome = nome;
-        this.contas = new ArrayList<>();
-        this.cod++;
+        this.contas = new HashMap<>();
+        this.cod += Banco.auxCod++;
         this.tipo = clacificaTipo(tipo);
     }
 
@@ -40,12 +39,15 @@ public abstract class Banco {
         this.nome = nome;
     }
 
-    public void addConta (Conta conta){
+    public void addConta (int agencia, Conta conta){
 
-        contas.add(conta);
+        contas.put(agencia, conta);
     }
 
-    protected abstract void criarConta (Cliente cliente);
+    public Conta getBanco (int agencia){
+
+        return contas.get(agencia);
+    }
     
     private String clacificaTipo(int tipo){
         String tempTipo = "underfined";
@@ -65,13 +67,20 @@ public abstract class Banco {
         return tempTipo;
     }
  
-    protected List<Conta> getListaContas() {
-        return Collections.unmodifiableList(contas);
+    protected ArrayList<Conta> getListaContas() {
+        return new ArrayList<>(contas.values());
     }
 
     @Override
     public String toString() {
-        return "Cod: " + getCod() + "\nTipo " + getTipo() + "\nNome: " + getNome() + "\n";
+        return String.format("\n|%-12d | %-12s| %-16s|\n",getCod(), getNome(), getTipo());
+    }
+
+    public Conta getAgencia(int agencia){
+        if(contas.isEmpty())
+            return null;
+        return contas.get(agencia);
+
     }
 
     

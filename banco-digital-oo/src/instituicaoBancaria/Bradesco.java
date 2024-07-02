@@ -1,21 +1,22 @@
 package instituicaoBancaria;
 
+import java.util.List;
+
 import banco.Banco;
+import conta.Conta;
 import personas.Cliente;
 
-public class NuBank extends Banco{
+public class Bradesco extends Banco{
 
-    public NuBank(String nome, int tipo) {
+    public Bradesco(String nome, int tipo) {
         super(nome, tipo);
         //TODO Auto-generated constructor stub
     }
-
     @Override
     public int getCod() {
         // TODO Auto-generated method stub
         return super.getCod();
     }
-
     @Override
     public String getNome() {
         // TODO Auto-generated method stub
@@ -28,8 +29,22 @@ public class NuBank extends Banco{
         return super.getTipo();
     }
 
-    Boolean isClienteCadastrado(Cliente cliente){
-        return false;
+    @Override
+    public void setNome(String nome) {
+        // TODO Auto-generated method stub
+        super.setNome(nome);
+    }
+
+    @Override
+    public void setTipo(int tipo) {
+        // TODO Auto-generated method stub
+        super.setTipo(tipo);
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return super.toString();
     }
 
     
