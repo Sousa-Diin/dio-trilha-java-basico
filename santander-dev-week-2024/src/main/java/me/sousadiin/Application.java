@@ -1,4 +1,4 @@
-package me.sousadiin.santander_dev_week_2024;
+package me.sousadiin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
